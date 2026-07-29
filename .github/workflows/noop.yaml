@@ -1,0 +1,13 @@
+# Exists solely so zizmor has an input to audit.
+#
+# This repo has no CI. The org-level required workflow runs zizmor, which
+# exits 3 ("no inputs collected") when it finds no workflows to scan, failing
+# the required check and blocking all merges.
+name: noop
+on: workflow_dispatch   # manual only — never fires, consumes no minutes
+permissions: {}
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'true'
